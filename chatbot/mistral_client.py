@@ -6,19 +6,32 @@ import streamlit as st
 from dotenv import load_dotenv
 from google import genai
 
-load_dotenv(
-    dotenv_path=Path(__file__).resolve().parents[1] / ".env"
-)
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+ENV_FILE = PROJECT_ROOT / ".env"
+
+load_dotenv(dotenv_path=ENV_FILE)
+
+
+def get_gemini_api_key():
+    """Return the configured Gemini key without logging or exposing it."""
+    api_key = os.getenv("GEMINI_API_KEY", "")
+
+    if api_key:
+        return api_key
+
+    try:
+        return st.secrets.get("GEMINI_API_KEY", "")
+    except Exception:
+        return ""
+
+
+def is_gemini_api_key_configured():
+    """Safely report whether Gemini credentials are available."""
+    return bool(get_gemini_api_key())
 
 def ask_mistral(messages):
 
-    api_key = os.getenv("GEMINI_API_KEY", "")
-
-    if not api_key:
-        try:
-            api_key = st.secrets.get("GEMINI_API_KEY", "")
-        except Exception:
-            api_key = ""
+    api_key = get_gemini_api_key()
 
     if not api_key:
         return "Gemini API Key not found."

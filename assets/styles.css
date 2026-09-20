@@ -19,7 +19,7 @@
     color: var(--ink);
 }
 
-[data-testid="stAppViewContainer"] > .main {
+[data-testid="stMain"] {
     background: var(--sand);
 }
 
@@ -27,13 +27,13 @@
     background: transparent;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.dashboard-shell-anchor) {
+.stApp:has(.dashboard-shell-anchor) {
     background:
         radial-gradient(circle at 10% 8%, rgba(216, 139, 43, 0.08), transparent 20%),
         var(--sand);
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.dashboard-shell-anchor) .block-container {
+.stApp:has(.dashboard-shell-anchor) .block-container {
     max-width: 1100px;
     margin: 14px 24px 20px;
     padding: 34px 34px 38px;
@@ -409,13 +409,13 @@ div[data-testid="stChatMessage"] p {
 
 /* Focused assistant workspace */
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) {
+.stApp:has(.assistant-workspace-anchor) {
     background:
         radial-gradient(circle at 10% 8%, rgba(216, 139, 43, 0.08), transparent 20%),
         var(--sand);
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) .block-container {
+.stApp:has(.assistant-workspace-anchor) .block-container {
     max-width: 900px;
     margin: 0 auto;
     padding: 24px 28px 112px;
@@ -497,7 +497,7 @@ div[data-testid="stChatMessage"] p {
 .assistant-welcome p { margin: 0; color: var(--muted); font-size: 13px; }
 .assistant-prompt-label { margin: 0 0 9px; color: var(--muted); font-size: 11px; font-weight: 750; text-transform: uppercase; letter-spacing: 0.08em; }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) div.stButton > button {
+.stApp:has(.assistant-workspace-anchor) div.stButton > button {
     min-height: 46px;
     border-color: var(--line);
     background: var(--surface);
@@ -506,13 +506,13 @@ div[data-testid="stChatMessage"] p {
     text-align: left;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) div.stButton > button:hover {
+.stApp:has(.assistant-workspace-anchor) div.stButton > button:hover {
     border-color: var(--green);
     background: var(--green-light);
     color: var(--green);
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"] {
+.stApp:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"] {
     display: flex;
     width: 100%;
     margin: 0;
@@ -525,12 +525,12 @@ div[data-testid="stChatMessage"] p {
     align-items: flex-end;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"] + div[data-testid="stChatMessage"] {
+.stApp:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"] + div[data-testid="stChatMessage"] {
     border-top: 0;
 }
 
 /* Compact conversational bubbles — Streamlit supplies the role-specific avatars. */
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) [data-testid="stChatMessageContent"] {
+.stApp:has(.assistant-workspace-anchor) [data-testid="stChatMessageContent"] {
     flex: 0 1 auto;
     width: fit-content;
     max-width: min(70%, 620px);
@@ -545,23 +545,23 @@ div[data-testid="stChatMessage"] p {
     line-height: 1.55;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) [data-testid="stChatMessageContent"] > :first-child {
+.stApp:has(.assistant-workspace-anchor) [data-testid="stChatMessageContent"] > :first-child {
     margin-top: 0;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) [data-testid="stChatMessageContent"] > :last-child {
+.stApp:has(.assistant-workspace-anchor) [data-testid="stChatMessageContent"] > :last-child {
     margin-bottom: 0;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) {
+.stApp:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) {
     justify-content: flex-end;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) [data-testid="stChatMessageAvatarUser"] {
+.stApp:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) [data-testid="stChatMessageAvatarUser"] {
     order: 2;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) [data-testid="stChatMessageContent"] {
+.stApp:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) [data-testid="stChatMessageContent"] {
     order: 1;
     border-color: var(--green);
     border-radius: 18px 18px 5px 18px;
@@ -570,12 +570,12 @@ div[data-testid="stChatMessage"] p {
     box-shadow: 0 4px 14px rgba(49, 91, 53, 0.2);
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) [data-testid="stChatMessageContent"] p,
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) [data-testid="stChatMessageContent"] li {
+.stApp:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) [data-testid="stChatMessageContent"] p,
+.stApp:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) [data-testid="stChatMessageContent"] li {
     color: #fffdf8;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) [data-testid="stChatMessageAvatarAssistant"] {
+.stApp:has(.assistant-workspace-anchor) [data-testid="stChatMessageAvatarAssistant"] {
     flex: 0 0 30px;
     width: 30px;
     height: 30px;
@@ -585,7 +585,7 @@ div[data-testid="stChatMessage"] p {
     box-shadow: 0 2px 8px rgba(49, 91, 53, 0.1);
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) [data-testid="stChatInput"] {
+.stApp:has(.assistant-workspace-anchor) [data-testid="stChatInput"] {
     max-width: 844px;
     margin: 14px auto 18px;
     padding: 0 4px;
@@ -595,7 +595,7 @@ div[data-testid="stChatMessage"] p {
     box-shadow: 0 5px 16px rgba(91, 75, 48, 0.05);
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) [data-testid="stChatInput"] textarea {
+.stApp:has(.assistant-workspace-anchor) [data-testid="stChatInput"] textarea {
     min-height: 42px;
     max-height: 110px;
     padding: 11px 48px 11px 14px;
@@ -606,14 +606,14 @@ div[data-testid="stChatMessage"] p {
     font-size: 13px;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) [data-testid="stChatInput"] textarea:focus {
+.stApp:has(.assistant-workspace-anchor) [data-testid="stChatInput"] textarea:focus {
     border: 0;
     box-shadow: none;
     outline: 2px solid rgba(49, 91, 53, 0.22);
     outline-offset: -2px;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) [data-testid="stChatInput"] button {
+.stApp:has(.assistant-workspace-anchor) [data-testid="stChatInput"] button {
     width: 34px;
     height: 34px;
     min-height: 34px;
@@ -625,7 +625,7 @@ div[data-testid="stChatMessage"] p {
     color: #fffdf8 !important;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) [data-testid="stChatInput"] button:hover {
+.stApp:has(.assistant-workspace-anchor) [data-testid="stChatInput"] button:hover {
     border-color: #24482a;
     background: #24482a !important;
 }
@@ -634,7 +634,7 @@ div[data-testid="stChatMessage"] p {
     display: none;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) [data-testid="stForm"]:has(.assistant-composer-anchor) {
+.stApp:has(.assistant-workspace-anchor) [data-testid="stForm"]:has(.assistant-composer-anchor) {
     margin-top: 14px;
     padding: 6px 8px 6px 14px;
     border: 1px solid var(--line);
@@ -643,7 +643,7 @@ div[data-testid="stChatMessage"] p {
     box-shadow: 0 5px 16px rgba(91, 75, 48, 0.05);
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) [data-testid="stForm"]:has(.assistant-composer-anchor) input {
+.stApp:has(.assistant-workspace-anchor) [data-testid="stForm"]:has(.assistant-composer-anchor) input {
     height: 38px;
     border: 0;
     background: transparent;
@@ -651,12 +651,12 @@ div[data-testid="stChatMessage"] p {
     font-size: 13px;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) [data-testid="stForm"]:has(.assistant-composer-anchor) input:focus {
+.stApp:has(.assistant-workspace-anchor) [data-testid="stForm"]:has(.assistant-composer-anchor) input:focus {
     border: 0;
     box-shadow: none;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) [data-testid="stForm"]:has(.assistant-composer-anchor) button {
+.stApp:has(.assistant-workspace-anchor) [data-testid="stForm"]:has(.assistant-composer-anchor) button {
     min-height: 38px;
     border: 1px solid var(--orange);
     border-radius: 8px;
@@ -666,7 +666,7 @@ div[data-testid="stChatMessage"] p {
     font-weight: 650;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) [data-testid="stForm"]:has(.assistant-composer-anchor) button:hover {
+.stApp:has(.assistant-workspace-anchor) [data-testid="stForm"]:has(.assistant-composer-anchor) button:hover {
     border-color: #b8731f;
     background: #b8731f !important;
     color: var(--blue) !important;
@@ -674,13 +674,13 @@ div[data-testid="stChatMessage"] p {
 
 /* Terrain analysis workspace */
 
-[data-testid="stAppViewContainer"] > .main:has(.terrain-shell-anchor) {
+.stApp:has(.terrain-shell-anchor) {
     background:
         radial-gradient(circle at 10% 8%, rgba(216, 139, 43, 0.08), transparent 20%),
         var(--sand);
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.terrain-shell-anchor) .block-container {
+.stApp:has(.terrain-shell-anchor) .block-container {
     max-width: 1100px;
     margin: 14px 24px 20px;
     padding: 34px 34px 38px;
@@ -826,7 +826,7 @@ div[data-testid="stElementContainer"].st-key-dashboard_chat_launcher button {
     text-align: center;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.alerts-shell-anchor) {
+.stApp:has(.alerts-shell-anchor) {
     background:
         radial-gradient(circle at 90% 5%, rgba(217, 74, 54, 0.06), transparent 22%),
         var(--sand);
@@ -869,7 +869,7 @@ div[data-testid="stElementContainer"].st-key-dashboard_chat_launcher button {
 .notification-copy h2 { margin: 10px 0 6px; color: var(--ink); font-family: Georgia, serif; font-size: 22px; }
 .notification-copy p { max-width: 620px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
 
-[data-testid="stAppViewContainer"] > .main:has(.settings-shell-anchor) {
+.stApp:has(.settings-shell-anchor) {
     background:
         radial-gradient(circle at 90% 4%, rgba(39, 106, 157, 0.06), transparent 22%),
         var(--sand);
@@ -906,16 +906,16 @@ div[data-testid="stVerticalBlock"]:has(> div[data-testid="stElementContainer"] .
 }
 
 @media (max-width: 640px) {
-    [data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) .block-container {
+    .stApp:has(.assistant-workspace-anchor) .block-container {
         padding-top: 1.2rem;
     }
-    [data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) .block-container {
+    .stApp:has(.assistant-workspace-anchor) .block-container {
         margin: 8px 8px 16px;
         padding: 24px 16px 112px;
         border-radius: 0;
         background: transparent;
     }
-    [data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) [data-testid="stChatMessageContent"] {
+    .stApp:has(.assistant-workspace-anchor) [data-testid="stChatMessageContent"] {
         max-width: 82%;
         padding: 10px 13px;
         font-size: 13px;
@@ -930,7 +930,7 @@ div[data-testid="stVerticalBlock"]:has(> div[data-testid="stElementContainer"] .
     .weather-header h1 { font-size: 28px; }
     .weather-header p { line-height: 1.4; }
 
-    [data-testid="stAppViewContainer"] > .main:has(.dashboard-shell-anchor) .block-container {
+    .stApp:has(.dashboard-shell-anchor) .block-container {
         margin: 8px 8px 16px;
         padding: 24px 16px 30px;
         border-radius: 12px;
@@ -973,38 +973,38 @@ div[data-testid="stVerticalBlock"]:has(> div[data-testid="stElementContainer"] .
 }
 
 /* Compact desktop dashboard: keep the primary overview above the fold. */
-[data-testid="stAppViewContainer"] > .main:has(.dashboard-shell-anchor) .block-container {
+.stApp:has(.dashboard-shell-anchor) .block-container {
     padding-top: 22px;
     padding-bottom: 22px;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.dashboard-shell-anchor) .main-title {
+.stApp:has(.dashboard-shell-anchor) .main-title {
     font-size: 30px;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.dashboard-shell-anchor) .subtitle {
+.stApp:has(.dashboard-shell-anchor) .subtitle {
     font-size: 12px;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.dashboard-shell-anchor) .section-kicker {
+.stApp:has(.dashboard-shell-anchor) .section-kicker {
     margin-top: 12px;
     margin-bottom: 7px;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.dashboard-shell-anchor) .stDivider {
+.stApp:has(.dashboard-shell-anchor) .stDivider {
     margin: 7px 0;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.dashboard-shell-anchor) .card {
+.stApp:has(.dashboard-shell-anchor) .card {
     padding: 13px 15px;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.dashboard-shell-anchor) .alert-card {
+.stApp:has(.dashboard-shell-anchor) .alert-card {
     padding: 10px 12px;
 }
 
 @media (max-width: 640px) {
-    [data-testid="stAppViewContainer"] > .main:has(.dashboard-shell-anchor) .block-container {
+    .stApp:has(.dashboard-shell-anchor) .block-container {
         padding-top: 24px;
         padding-bottom: 30px;
     }
@@ -1146,7 +1146,7 @@ div[data-testid="stElementContainer"].st-key-login_continue_button button {
 
 /* Final assistant-chat bubble overrides.
    The outer Streamlit message remains only as a layout row; the inner content is the bubble. */
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"] {
+.stApp:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"] {
     display: flex !important;
     width: 100% !important;
     margin: 10px 0 !important;
@@ -1159,7 +1159,7 @@ div[data-testid="stElementContainer"].st-key-login_continue_button button {
     align-items: flex-end !important;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"] > div:last-child {
+.stApp:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"] > div:last-child {
     flex: 0 1 auto !important;
     width: fit-content !important;
     max-width: min(70%, 620px) !important;
@@ -1174,15 +1174,15 @@ div[data-testid="stElementContainer"].st-key-login_continue_button button {
     line-height: 1.55 !important;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) {
+.stApp:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) {
     justify-content: flex-end !important;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) [data-testid="stChatMessageAvatarUser"] {
+.stApp:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) [data-testid="stChatMessageAvatarUser"] {
     order: 2 !important;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) > div:last-child {
+.stApp:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) > div:last-child {
     order: 1 !important;
     margin-left: auto !important;
     border-color: var(--green) !important;
@@ -1192,12 +1192,12 @@ div[data-testid="stElementContainer"].st-key-login_continue_button button {
     box-shadow: 0 4px 14px rgba(49, 91, 53, 0.2) !important;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) > div:last-child p,
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) > div:last-child li {
+.stApp:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) > div:last-child p,
+.stApp:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) > div:last-child li {
     color: #fffdf8 !important;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) [data-testid="stChatMessageAvatarAssistant"] {
+.stApp:has(.assistant-workspace-anchor) [data-testid="stChatMessageAvatarAssistant"] {
     flex: 0 0 30px !important;
     width: 30px !important;
     height: 30px !important;
@@ -1208,7 +1208,7 @@ div[data-testid="stElementContainer"].st-key-login_continue_button button {
 }
 
 @media (max-width: 640px) {
-    [data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"] > div:last-child {
+    .stApp:has(.assistant-workspace-anchor) div[data-testid="stChatMessage"] > div:last-child {
         max-width: 82% !important;
         padding: 10px 13px !important;
         font-size: 13px !important;
@@ -1219,24 +1219,47 @@ div[data-testid="stElementContainer"].st-key-login_continue_button button {
 /*last thing add for the bhul interface change*/
 
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) [data-testid="stBottom"],
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) [data-testid="stBottomBlockContainer"] {
+.stApp:has(.assistant-workspace-anchor) [data-testid="stBottom"],
+.stApp:has(.assistant-workspace-anchor) [data-testid="stBottomBlockContainer"] {
     background-color: var(--sand) !important;
     background: var(--sand) !important;
 }
 
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) [data-testid="stBottom"] > div {
+.stApp:has(.assistant-workspace-anchor) [data-testid="stBottom"] > div {
     background-color: transparent !important;
     background: transparent !important;
 }
 
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) [data-testid="stChatInput"] {
+.stApp:has(.assistant-workspace-anchor) [data-testid="stChatInput"] {
     background-color: var(--surface) !important;
 }
 
-[data-testid="stAppViewContainer"] > .main:has(.assistant-workspace-anchor) [data-testid="stChatInput"] textarea {
+.stApp:has(.assistant-workspace-anchor) [data-testid="stChatInput"] textarea {
     background-color: transparent !important;
     color: var(--ink) !important;
+}
+
+/* ---- Chat input: fix dark bar + red focus border (Streamlit >= 1.4x) ---- */
+.stApp:has(.assistant-workspace-anchor) [data-testid="stBottom"],
+.stApp:has(.assistant-workspace-anchor) [data-testid="stBottom"] > div,
+.stApp:has(.assistant-workspace-anchor) [data-testid="stBottomBlockContainer"] {
+    background: var(--sand) !important;
+}
+
+.stApp:has(.assistant-workspace-anchor) [data-testid="stChatInput"],
+.stApp:has(.assistant-workspace-anchor) [data-testid="stChatInput"] > div {
+    background: var(--surface) !important;
+    border-color: var(--line) !important;
+}
+
+.stApp:has(.assistant-workspace-anchor) [data-testid="stChatInput"]:focus-within,
+.stApp:has(.assistant-workspace-anchor) [data-testid="stChatInput"]:focus-within > div {
+    border-color: var(--green) !important;
+    box-shadow: 0 0 0 1px var(--green) !important;
+}
+
+.stApp:has(.assistant-workspace-anchor) [data-testid="stChatInput"] textarea::placeholder {
+    color: var(--muted) !important;
 }
