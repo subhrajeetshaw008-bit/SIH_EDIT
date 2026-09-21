@@ -71,27 +71,27 @@ with map_column:
         fill_color = "red"
 
     folium.Circle(
-    [latitude, longitude],
-    radius=5000,
-    color=circle_color,
-    fill=True,
-    fill_color=fill_color,
-    fill_opacity=0.30
+        [latitude, longitude],
+        radius=5000,
+        color=circle_color,
+        fill=True,
+        fill_color=fill_color,
+        fill_opacity=0.30
     ).add_to(risk_map)
 
     folium.Marker(
-    [latitude, longitude],
-    tooltip=f"{user['name']}'s selected place",
-    popup=f"{latitude:.4f}, {longitude:.4f} | {risk_level}",
-    icon=folium.Icon(
-        color=(
-            "green"
-            if risk_score is not None and risk_score < 30
-            else "orange"
-            if risk_score is not None and risk_score < 70
-            else "red"
+        [latitude, longitude],
+        tooltip=f"{user['name']}'s selected place",
+        popup=f"{latitude:.4f}, {longitude:.4f} | {risk_level}",
+        icon=folium.Icon(
+            color=(
+                "green"
+                if risk_score is not None and risk_score < 30
+                else "orange"
+                if risk_score is not None and risk_score < 70
+                else "red"
+            )
         )
-    )
     ).add_to(risk_map)
 
     folium.LayerControl().add_to(risk_map)
@@ -102,7 +102,6 @@ with map_column:
         height=560
     )
     if map_data and map_data.get("last_clicked"):
-
         clicked_lat = map_data["last_clicked"]["lat"]
         clicked_lon = map_data["last_clicked"]["lng"]
 
