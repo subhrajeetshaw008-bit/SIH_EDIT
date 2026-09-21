@@ -2,6 +2,7 @@ import streamlit as st
 import folium
 
 from streamlit_folium import st_folium
+from streamlit_geolocation import streamlit_geolocation
 from weather import get_weather
 from terrain import get_terrain
 from utils.predict import predict_risk
@@ -52,26 +53,63 @@ unsafe_allow_html=True
 st.markdown("<div class='section-kicker'>01 <span>Location</span></div>", unsafe_allow_html=True)
 
 # =========================
-# LOCATION INPUT
+# LOCATION INPUT (manual + GPS)
 # =========================
 
-col1, col2, col3 = st.columns([3,3,2])
+# Default coordinates (only set once per session)
+if "lat_input" not in st.session_state:
+    st.session_state["lat_input"] = 24.5000
+if "lon_input" not in st.session_state:
+    st.session_state["lon_input"] = 93.5000
+
+# GPS button. This must run BEFORE the number inputs below,
+# so a new GPS reading can be written into their session_state keys.
+gps_col, gps_text_col = st.columns([1, 8])
+
+with gps_col:
+    gps = streamlit_geolocation()
+
+if gps and gps.get("latitude") is not None and gps.get("longitude") is not None:
+    gps_point = (gps["latitude"], gps["longitude"])
+
+    # Apply only when the GPS reading changes, so manual edits are not overwritten
+    if st.session_state.get("last_gps") != gps_point:
+        st.session_state["last_gps"] = gps_point
+        st.session_state["lat_input"] = round(gps["latitude"], 5)
+        st.session_state["lon_input"] = round(gps["longitude"], 5)
+        st.session_state["gps_accuracy"] = gps.get("accuracy")
+
+with gps_text_col:
+    accuracy = st.session_state.get("gps_accuracy")
+    if accuracy:
+        st.caption(f"📍 Using your GPS location (accuracy about ±{int(accuracy)} m). You can still edit the values below.")
+    else:
+        st.caption("📍 Click the location icon to use your current GPS position, or enter coordinates manually.")
+
+col1, col2, col3 = st.columns([3, 3, 2])
 
 with col1:
     latitude = st.number_input(
-    "Latitude",
-    value=24.5000
-)
-    
+        "Latitude",
+        min_value=-90.0,
+        max_value=90.0,
+        step=0.01,
+        format="%.5f",
+        key="lat_input"
+    )
 
 with col2:
     longitude = st.number_input(
-    "Longitude",
-    value=93.5000
-)
+        "Longitude",
+        min_value=-180.0,
+        max_value=180.0,
+        step=0.01,
+        format="%.5f",
+        key="lon_input"
+    )
+
 st.session_state["latitude"] = latitude
 st.session_state["longitude"] = longitude
-
 
 with col3:
     st.write("")
